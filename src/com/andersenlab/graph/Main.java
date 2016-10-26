@@ -1,4 +1,4 @@
-package second;
+package com.andersenlab.graph;
 
 public class Main {
 

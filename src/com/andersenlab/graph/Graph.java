@@ -1,5 +1,6 @@
-package second;
+package com.andersenlab.graph;
 
+//import java.util.Arrays;
 import java.util.Random;
 
 public class Graph {
@@ -7,23 +8,26 @@ public class Graph {
 	private int block = 99;
 	private int n;
 
-	int[][] graph;// = new int[n][n]; // Начальный массив с расстояниями
+	public int[][] graph;// = new int[n][n]; // Начальный массив с расстояниями
 
-	int[][] march;// = new int[n][n]; // Массив с последней точкой, через
-					// которую был учлучшен путь
+	public int[][] march;// = new int[n][n]; // Массив с последней точкой, через
+	// которую был учлучшен путь
 
-	Graph() {
+	public Graph() {
 
 		n = 10;
 		graph = new int[n][n];
 		march = new int[n][n];
+		createNuulMarch();
+
 	}
 
-	Graph(int k) {
+	public Graph(int k) {
 
 		n = k;
 		graph = new int[n][n];
 		march = new int[n][n];
+		createNuulMarch();
 	}
 
 	int[][] buildRandomGraph() { // метод для генерации графа со случайными
@@ -50,6 +54,18 @@ public class Graph {
 		return graph;
 	};
 
+	int[][] createNuulMarch() {
+
+		for (int i = 0; i < n; ++i) {
+			// System.out.println();
+			for (int j = 0; j < n; ++j) {
+				march[i][j] = -1;
+			}
+
+		}
+		return march;
+	}
+
 	int[][] buildUsersGraph() {
 		return graph;
 		// создать
@@ -63,15 +79,15 @@ public class Graph {
 		// System.out.println(g);
 	};
 
-	void printGraph(int d[][]) {
+	public void printGraph(int d[][]) {
 		// Напечатать граф
 
-		System.out.println();
+		//System.out.println();
 		for (int i = 0; i < n; ++i) {
 			System.out.println();
 			for (int j = 0; j < n; ++j) {
 
-				if (d[i][j] > 9) {
+				if (d[i][j] > 9 || d[i][j] < 0) {
 					// System.out.print("XХ ");
 					// continue;
 					System.out.print(d[i][j] + " | ");
@@ -82,9 +98,10 @@ public class Graph {
 			}
 
 		}
+		System.out.println();
 	};
 
-	int[][] findShortWay(int[][] graph) {
+	public int[][] findShortWay(int[][] graph) {
 
 		for (int i = 0; i < n; ++i) {
 
