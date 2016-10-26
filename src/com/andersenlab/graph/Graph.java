@@ -2,6 +2,7 @@ package com.andersenlab.graph;
 
 //import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Graph {
 
@@ -66,7 +67,31 @@ public class Graph {
 		return march;
 	}
 
-	int[][] buildUsersGraph() {
+	int[][] buildUsersGraph(int[][] graph) {
+
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in); // создаём объект класса Scanner
+
+		for (int i = 0; i < n; ++i) {
+			System.out.println();
+			for (int j = 0; j < n; ++j) {
+
+				if (i == j) {
+					continue;
+				} else {
+					System.out.print("Введите расстояние из точки (" + i + ") в точку (" + j + "): ");
+					if (sc.hasNextInt()) {
+
+						graph[i][j] = sc.nextInt();
+
+					} else {
+						System.out.println("Вы ввели не целое число");
+					}
+
+				}
+			}
+		}
+
 		return graph;
 		// создать
 		// int[][] g = {
@@ -82,7 +107,7 @@ public class Graph {
 	public void printGraph(int d[][]) {
 		// Напечатать граф
 
-		//System.out.println();
+		// System.out.println();
 		for (int i = 0; i < n; ++i) {
 			System.out.println();
 			for (int j = 0; j < n; ++j) {

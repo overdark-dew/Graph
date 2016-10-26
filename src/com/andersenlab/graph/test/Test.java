@@ -1,5 +1,7 @@
 package com.andersenlab.graph.test;
 
+import java.util.Arrays;
+
 import com.andersenlab.graph.Graph;
 
 
@@ -40,7 +42,9 @@ public class Test {
 		System.out.print("Точки оптимизации :");
 		test.printGraph(test.march);
 		
-		System.out.print("Результат теста :");
+		System.out.print("Результат теста : " );
+		
+		System.out.println (Arrays.equals(test.graph, expect.graph));
 		
 		for (int i = 0; i < 3; ++i) {
 		 System.out.println();
