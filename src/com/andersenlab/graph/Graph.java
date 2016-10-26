@@ -18,7 +18,7 @@ public class Graph {
 		n = 10;
 		graph = new int[n][n];
 		march = new int[n][n];
-		createNuulMarch();
+		createNullMarch();
 
 	}
 
@@ -27,7 +27,7 @@ public class Graph {
 		n = k;
 		graph = new int[n][n];
 		march = new int[n][n];
-		createNuulMarch();
+		createNullMarch();
 	}
 
 	int[][] buildRandomGraph() { // метод для генерации графа со случайными
@@ -54,7 +54,7 @@ public class Graph {
 		return graph;
 	};
 
-	int[][] createNuulMarch() {
+	int[][] createNullMarch() {
 
 		for (int i = 0; i < n; ++i) {
 			// System.out.println();
